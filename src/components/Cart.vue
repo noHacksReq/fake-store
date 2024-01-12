@@ -7,7 +7,7 @@ let cartProds = ref([]);
 
 async function getCart() {
     await APICalls.getCart().then(res => carts.value = res)
-    console.log(carts.value)
+    //console.log(carts.value)
 }
 
 getCart()

@@ -42,7 +42,7 @@ export const getOneCategory = (selectedCat) => {
 }
 
 export const getCart = () => {
-    console.log('cart is here')
+    //console.log('cart is here')
     return fetch('https://fakestoreapi.com/carts/1')
             .then(res=>res.json())
             .then(getCarts=>{
