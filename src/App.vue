@@ -1,11 +1,12 @@
 <script setup>
 import Main from './components/Main.vue'
 import Cart from './components/Cart.vue'
+import TopNav from './components/TopNav.vue'
 
 </script>
 
 <template>
-  
+  <TopNav />
   <Main />
   <Cart />
 </template>

@@ -36,12 +36,12 @@ async function getSingleCat(item) {
     })
   }
   await APICalls.getOneCategory(item).then (res => singleCat.value = res)
-  console.log(singleCat.value)
+  //console.log(singleCat.value)
   
 }
 
 async function addItemToCart(prodId) {
-  console.log(prodId.id)
+  //console.log(prodId.id)
   fetch('https://fakestoreapi.com/carts/1',{
             method:"PUT",
             body:JSON.stringify(
@@ -53,7 +53,7 @@ async function addItemToCart(prodId) {
             )
         })
             .then(res=>res.json())
-            .then(json=>console.log(json))
+            //.then(json=>console.log(json))
   
 }
 
@@ -73,18 +73,7 @@ getCats()
     Deal of the Day: {{ singleProd.title }}
   </h1>
   
-  <ul >
-    <li v-for="item in categories"
-    @click="getSingleCat(item)">
-      {{ item }}
-    </li>
-  </ul>
-  <ul>
-    <li v-for="product in singleCat"
-    @click="addItemToCart(product)">
-      {{ product.title }}
-    </li>
-  </ul>
+
   <button >test</button>
 </template>
 
