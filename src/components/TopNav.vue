@@ -1,26 +1,30 @@
 <script setup>
-import {   ref } from 'vue'
-import  * as APICalls from '../api.js'
+import {  ref, reactive } from 'vue'
+import  * as APICalls from '../api.js';
 
 let cats =ref([]);
-let getCat = "";
-let selectedCat = ([]);
+let getCat = ("");
+let selectedCat = ref("");
 let previewCat = ref([]);
 
+const props = defineProps({
+  testProp:String
+}
+)
+
+
+
+
 async function getCats() {
+  // gets categories to display in topnav
   await APICalls.getCategories().then(res => cats.value = res )
   
   }
 
 async function getSelectedCat(cat) {
-  getCat = cat
-  fetch('src/api.js'), {
-    method: 'POST',
-    body: JSON.stringify({
-      getCat: getCat
-    })
-  }
-  await APICalls.getOneCategory(getCat).then (res => selectedCat = res)
+  // set the selected category
+  
+  selectedCat = cat
   console.log(selectedCat)
   
 }
@@ -31,7 +35,7 @@ getCats()
 
 <template>
   <section class="topnav">
-    top nav
+    {{ testProp }}
     <ul class="topnavLi">
       <li
       class="liItem"

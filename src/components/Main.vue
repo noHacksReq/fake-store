@@ -10,6 +10,13 @@ let singleCat = ref([]);
 let selectedCat = ref(null);
 let selectedItem = ref(null)
 
+const props = defineProps({
+  selectedCat:String
+  
+})
+
+
+
 async function getAllProds() {
   await APICalls.getProducts().then(res => products.value = res)
 }
@@ -32,11 +39,11 @@ async function getSingleCat(item) {
   fetch('src/api.js'), {
     method: 'POST',
     body: JSON.stringify({
-      selectedCat: selectedCat
+      //selectedCat: selectedCat
     })
   }
   await APICalls.getOneCategory(item).then (res => singleCat.value = res)
-  //console.log(singleCat.value)
+  console.log(singleCat.value)
   
 }
 
@@ -59,10 +66,10 @@ async function addItemToCart(prodId) {
 
 
 
-getAllProds()
-getOneProd()
-getSorted()
-getCats()
+// getAllProds()
+// getOneProd()
+// getSorted()
+// getCats()
 
 
 
@@ -70,11 +77,11 @@ getCats()
 
 <template>
   <h1 >
-    Deal of the Day: {{ singleProd.title }}
+    SelectedProp{{ props.selectedCat }}
   </h1>
   
 
-  <button >test</button>
+  <button @click="$emit('testEmit')">test</button>
 </template>
 
 <style scoped>
