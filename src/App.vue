@@ -2,9 +2,7 @@
 import Main from './components/Main.vue'
 import Cart from './components/Cart.vue'
 import TopNav from './components/TopNav.vue'
-import {   ref } from 'vue'
 
-let count = ref(0)
 
 </script>
 
