@@ -8,7 +8,7 @@ import TopNav from './components/TopNav.vue'
 
 <template>
   <TopNav testProp="heello im a prop"/>
-  <Main @test-emit="(i) => {debugger}" />
+  <Main />
   
 </template>
 
