@@ -1,6 +1,8 @@
 <script setup>
-import {   ref } from 'vue'
+import {   ref, computed } from 'vue'
 import  * as APICalls from '../api.js'
+import { useProdsStore } from '../productStore.js'
+import { storeToRefs } from 'pinia'
 
 let products = ref([]);
 let singleProd = ref([]);
@@ -10,10 +12,21 @@ let singleCat = ref([]);
 let selectedCat = ref(null);
 let selectedItem = ref(null)
 
+const store = useProdsStore()
+
+let count = computed(() => store.count)
 const props = defineProps({
   selectedCat:String
   
 })
+
+function addOne(count) {
+  store.count = count + 1
+  console.log(count)
+  
+  
+  
+}
 
 
 
@@ -77,11 +90,12 @@ async function addItemToCart(prodId) {
 
 <template>
   <h1 >
+    {{ count }}
     SelectedProp{{ props.selectedCat }}
   </h1>
   
 
-  <button @click="$emit('testEmit')">test</button>
+  <button @click="addOne(count)">test</button>
 </template>
 
 <style scoped>
