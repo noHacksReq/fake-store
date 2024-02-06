@@ -11,7 +11,12 @@ export const useProdsStore = defineStore('products', {
     },
     actions: {
         async getCats() {
-            await APICalls.getCategories().then(res => this.categories = res)
+            try{
+                await APICalls.getCategories().then(res => this.categories = res)
+            }catch(error) {
+                console.log('error')
+            }
+            
         }
     }
 })
