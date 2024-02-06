@@ -1,11 +1,14 @@
 <script setup>
-import {  ref, reactive } from 'vue'
+import {  ref } from 'vue';
+import { useProdsStore } from '../productStore.js';
 import  * as APICalls from '../api.js';
 
 let cats =ref([]);
 let getCat = ("");
-let selectedCat = ref("");
+
 let previewCat = ref([]);
+
+const store = useProdsStore();
 
 const props = defineProps({
   testProp:String
@@ -14,34 +17,27 @@ const props = defineProps({
 
 
 
-
-async function getCats() {
-  // gets categories to display in topnav
-  await APICalls.getCategories().then(res => cats.value = res )
+function selectedCat(e) {
   
-  }
-
-async function getSelectedCat(cat) {
-  // set the selected category
-  
-  selectedCat = cat
-  console.log(selectedCat)
-  
+  store.selectedCat = e.target.innerHTML;
 }
 
-getCats()
+store.getCats()
+
+
 
 </script>
 
 <template>
-  <section class="topnav">
+  <section class="topnav"
+  >
     {{ testProp }}
     <ul class="topnavLi">
       <li
       class="liItem"
-      v-for=" cat  in cats"
+      v-for=" cat  in store.categories"
       :key="cat"
-      @click="getSelectedCat(cat)"
+      @click="selectedCat"
       >
       {{cat}}
     </li>
