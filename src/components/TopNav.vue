@@ -1,7 +1,8 @@
 <script setup>
 import {  ref } from 'vue';
+import  * as APICalls from '../api.js'
 import { useProdsStore } from '../productStore.js';
-import  * as APICalls from '../api.js';
+
 
 let cats =ref([]);
 let getCat = ("");
@@ -20,6 +21,9 @@ const props = defineProps({
 function selectedCat(e) {
   
   store.selectedCat = e.target.innerHTML;
+  
+  APICalls.getOneCategory(store.selectedCat)
+    .then(res=> store.productsList = res)
 }
 
 store.getCats()
