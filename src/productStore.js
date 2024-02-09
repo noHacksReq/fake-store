@@ -4,9 +4,9 @@ import  * as APICalls from './api.js';
 export const useProdsStore = defineStore('products', {
     state: () => {
         return {
-            count: 0,
             categories: [],
-            selectedCat: null
+            selectedCat: null,
+            productsList: [],
         }
     },
     actions: {
@@ -14,9 +14,22 @@ export const useProdsStore = defineStore('products', {
             try{
                 await APICalls.getCategories().then(res => this.categories = res)
             }catch(error) {
-                console.log('error')
+                console.log('error fetching categories')
             }
             
+        },
+        async getProds() {
+            
+            console.log(this.selectedCat)
+            try{
+                await fetch(
+                `https://fakestoreapi.com/products/category/${store.selectedCat}`).then(res => this.productsList = res)
+                
+                
+                  
+            } catch(error) {
+                console.log('error fetching products')
+            }
         }
     }
 })
