@@ -4,6 +4,7 @@ import  * as APICalls from '../api.js'
 import { useProdsStore } from '../productStore.js';
 
 
+
 let cats =ref([]);
 let getCat = ("");
 
@@ -34,8 +35,10 @@ store.getCats()
 
 <template>
   <section class="topnav"
-  >
-    {{ testProp }}
+  ><h1>
+    Welcome to the Fake Store!
+  </h1>
+    
     <ul class="topnavLi">
       <li
       class="liItem"
@@ -61,7 +64,16 @@ store.getCats()
   flex-direction: column;
   align-items: center;
   width: auto;
+  font-family: 'roboto', sans-serif;
+  
 }
+
+.topnav h1 {
+  color: var(--dark-brown);
+  font-weight: 600;
+}
+
+
 
 .topnavLi{
   display: flex;
