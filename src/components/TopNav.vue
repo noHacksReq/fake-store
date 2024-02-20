@@ -63,14 +63,18 @@ store.getCats()
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: auto;
+  position: sticky;
+  width: 100vw;
   font-family: 'roboto', sans-serif;
-  
+  color: var(--grey);
+  font-weight: 500;
+  background-color: var(--light-brown);
 }
 
 .topnav h1 {
-  color: var(--dark-brown);
+  
   font-weight: 600;
+  margin: 10px 0 0 0;
 }
 
 

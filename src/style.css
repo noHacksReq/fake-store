@@ -40,7 +40,9 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  
+
+  background-color: var(--dark-yellow);
 }
 
 h1 {
@@ -70,12 +72,10 @@ button:focus-visible {
 
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 10em;
+  
   text-align: center;
-
-  background-color: rgb(215, 222, 17);
+  height: 100vh;
+  background-color: var(--dark-yellow);
 }
 
 @media (prefers-color-scheme: light) {
