@@ -21,7 +21,7 @@ let {selectedCat} = storeToRefs(store)
     
     Category {{ store.selectedCat }}
   </h1>
-  <section>
+  <section class="prodPage">
     <h2 v-if="store.selectedCat === null">No Cat Selected</h2>
     <ul v-else >
       <li v-for="prod in store.productsList">
@@ -37,5 +37,9 @@ let {selectedCat} = storeToRefs(store)
 <style scoped>
 img {
   height: 250px;
+}
+
+.prodPage {
+  width: 100vw;
 }
 </style>

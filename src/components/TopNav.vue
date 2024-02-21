@@ -64,7 +64,7 @@ store.getCats()
   flex-direction: column;
   align-items: center;
   position: sticky;
-  width: 100vw;
+  
   font-family: 'roboto', sans-serif;
   color: var(--grey);
   font-weight: 500;
