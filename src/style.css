@@ -37,8 +37,10 @@ a:hover {
 
 body {
   margin: 0;
+  height: 100vh;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  
   min-width: 320px;
   
 
@@ -74,7 +76,7 @@ button:focus-visible {
 #app {
   
   text-align: center;
-  height: 100vh;
+  
   background-color: var(--dark-yellow);
 }
 

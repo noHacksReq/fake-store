@@ -23,10 +23,10 @@ let {selectedCat} = storeToRefs(store)
   </h1>
   <section class="prodPage">
     <h2 v-if="store.selectedCat === null">No Cat Selected</h2>
-    <ul v-else >
-      <li v-for="prod in store.productsList">
+    <ul class="prodList" v-else >
+      <li class="prodItem" v-for="prod in store.productsList">
         {{ prod.title }}
-         <img :src="`${ prod.image }`">
+         <img class="prodImg" :src="`${ prod.image }`">
       </li>
     </ul>
   </section>
@@ -35,11 +35,26 @@ let {selectedCat} = storeToRefs(store)
 </template>
 
 <style scoped>
-img {
-  height: 250px;
-}
+
 
 .prodPage {
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 15vw;
+}
+
+.prodList {
+  list-style: none;
+  width: 66vw;
+}
+
+.prodItem{
+  display: flex;
+  flex-direction: column;
+ }
+
+.prodImg {
+  width: 33%;
+  
 }
 </style>
