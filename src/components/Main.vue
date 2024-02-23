@@ -6,10 +6,11 @@ import { storeToRefs } from 'pinia'
 
 const store = useProdsStore()
 
-let {selectedCat} = storeToRefs(store)
+let {selectedCat} = storeToRefs(store);
 
-
-
+function dealOfday() {
+  store.selectedCat = null;
+}
 
 
 
@@ -33,14 +34,14 @@ let {selectedCat} = storeToRefs(store)
     </ul>
   </section>
 
-  <button >test</button>
+  <button @click="dealOfday">test</button>
 </template>
 
 <style scoped>
 
 
 .prodPage {
- 
+  
   margin: 10px 2%;
 }
 
@@ -49,18 +50,20 @@ let {selectedCat} = storeToRefs(store)
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
- 
+  
 }
 
 .prodItem{
   display: flex;
   flex-direction: column;
-  width: min-content;
-  margin: 0 15px;
+  align-items: flex-start;
+  width: 20vw;
+  padding: 0 15px;
+  flex-shrink: 0;
  }
 
 .prodImg {
-  width: 299px;
+  
   height: 250px;
   object-fit: contain;
   
