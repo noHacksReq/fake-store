@@ -56,7 +56,7 @@ store.getCats()
 <style scoped>
 
 * {
-  outline: 1px solid rgb(99, 219, 30);
+  
 }
 .topnav {
   
@@ -84,7 +84,7 @@ store.getCats()
   flex-direction: row;
   justify-content: space-around;
   list-style: none;
-  width: 95%;
+  width: 80%;
 }
 
 .liItem {
