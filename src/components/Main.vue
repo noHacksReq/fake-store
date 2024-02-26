@@ -18,7 +18,7 @@ function dealOfday() {
 </script>
 
 <template>
-  <h1 >
+  <h1 class="catTitle">
     
     Category {{ store.selectedCat }}
   </h1>
@@ -38,17 +38,21 @@ function dealOfday() {
 </template>
 
 <style scoped>
-
+.catTitle {
+  width: 50%;
+  margin: 0 auto;
+}
 
 .prodPage {
   
   margin: 10px 2%;
+  contain: content;
 }
 
 .prodList {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  
   flex-wrap: wrap;
   
 }
@@ -57,15 +61,25 @@ function dealOfday() {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
+
+  background-color: var(--golden-brown);
   width: 20vw;
-  padding: 0 15px;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
   flex-shrink: 0;
+  
+ }
+
+ .prodItem h3 {
+  text-align: left;
  }
 
 .prodImg {
-  
-  height: 250px;
+  width: 100%;
+  max-width: 300px;
   object-fit: contain;
-  
+  border-radius: 5px;
 }
 </style>
