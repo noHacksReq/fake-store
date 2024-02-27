@@ -12,9 +12,6 @@ function dealOfday() {
   store.selectedCat = null;
 }
 
-
-
-
 </script>
 
 <template>
@@ -52,9 +49,10 @@ function dealOfday() {
 .prodList {
   list-style: none;
   display: flex;
-  
+  justify-content: center;
   flex-wrap: wrap;
-  
+
+  width: auto;
 }
 
 .prodItem{
@@ -69,8 +67,7 @@ function dealOfday() {
   padding: 10px;
   border-radius: 5px;
   flex-shrink: 0;
-  
- }
+}
 
  .prodItem h3 {
   text-align: left;
