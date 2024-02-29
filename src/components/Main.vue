@@ -3,14 +3,10 @@ import {   ref, computed, watchEffect } from 'vue'
 import  * as APICalls from '../api.js'
 import { useProdsStore } from '../productStore.js'
 import { storeToRefs } from 'pinia'
+import Modal from './Modal.vue'
 
-const store = useProdsStore()
+const store = useProdsStore();
 
-let {selectedCat} = storeToRefs(store);
-
-function dealOfday() {
-  store.selectedCat = null;
-}
 
 </script>
 
@@ -19,11 +15,20 @@ function dealOfday() {
     
     Category {{ store.selectedCat }}
   </h1>
+  <section v-if="store.showModal === true">
+    <Modal/>
+  </section>
+  
   <section class="prodPage">
     <h2 v-if="store.selectedCat === null">No Cat Selected</h2>
     <ul class="prodList" v-else >
-      <li class="prodItem" v-for="prod in store.productsList">
-        <img class="prodImg" :src="`${ prod.image }`">
+      <li class="prodItem" v-for="prod in store.productsList"
+      @click="store.getItem()"
+      
+      >
+        <img 
+        @click="store.toggleModal()"
+        class="prodImg" :src="`${ prod.image }`">
         <h3>{{ prod.title }}</h3>
         <h4>Price: {{ prod.price }}</h4>
          
@@ -31,7 +36,7 @@ function dealOfday() {
     </ul>
   </section>
 
-  <button @click="dealOfday">test</button>
+  <button >test</button>
 </template>
 
 <style scoped>
