@@ -24,7 +24,11 @@ function selectedCat(e) {
   store.selectedCat = e.target.innerHTML;
   
   APICalls.getOneCategory(store.selectedCat)
-    .then(res=> store.productsList = res)
+    .then(res=>{
+      
+     store.productsList = res
+     
+    })
 }
 
 store.getCats()

@@ -7,7 +7,6 @@ import Modal from './Modal.vue'
 
 const store = useProdsStore();
 
-
 </script>
 
 <template>
@@ -23,7 +22,8 @@ const store = useProdsStore();
     <h2 v-if="store.selectedCat === null">No Cat Selected</h2>
     <ul class="prodList" v-else >
       <li class="prodItem" v-for="prod in store.productsList"
-      @click="store.getItem()"
+      :key='`${prod.id}`'
+      @click="store.getItem(prod.id)"
       
       >
         <img 

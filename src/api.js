@@ -10,10 +10,11 @@ export const getProducts = () => {
             })
 }
 
-export const getSingleProd = () => {
-    return fetch('https://fakestoreapi.com/products/3')
+export const getSingleProd = (id) => {
+    return fetch(`https://fakestoreapi.com/products/${id}`)
             .then(res=>res.json())
             .then(getOneProd=>{
+                
              return getOneProd
             })
 }

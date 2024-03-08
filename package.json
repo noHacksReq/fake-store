@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/material-icons": "^5.0.14",
     "@fontsource/roboto": "^5.0.8",
     "node": "^21.6.2",
     "normalize.css": "^8.0.1",

@@ -1,6 +1,7 @@
 <script setup>
 import Main from './components/Main.vue'
 import '@fontsource/roboto'
+import '@fontsource/material-icons'
 import TopNav from './components/TopNav.vue'
 
 
