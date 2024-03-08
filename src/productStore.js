@@ -6,7 +6,8 @@ export const useProdsStore = defineStore('products', {
         return {
             categories: [],
             selectedCat: null,
-            seleectedItem: [null],
+            selectedProdId: null,
+            selectedItem: [],
             productsList: [],
             showModal: false,
         }
@@ -19,23 +20,17 @@ export const useProdsStore = defineStore('products', {
                 console.log('error fetching categories')
             }
         },
-        async getProds() {
-            
-            try{
-                await fetch(
-                `https://fakestoreapi.com/products/category/${store.selectedCat}`).then(res => this.productsList = res)
-            } catch(error) {
-                console.log('error fetching products')
-            }
-        },
-        getItem(){
+        getItem(key){
             // need to get itme info on click here
-            debugger
-            console.log(this.productsList)
+            
+            this.selectedProdId = key;
+            
+            APICalls.getSingleProd(this.selectedProdId).then(res => this.selectedItem = res)
         },
     
 
     toggleModal() {
+
         this.showModal = !this.showModal
     }},
 })
