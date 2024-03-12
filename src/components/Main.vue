@@ -23,15 +23,18 @@ const store = useProdsStore();
     <ul class="prodList" v-else >
       <li class="prodItem" v-for="prod in store.productsList"
       :key='`${prod.id}`'
-      @click="store.getItem(prod.id)"
-      
-      >
+      @click="store.getItem(prod.id)">
         <img 
-        @click="store.toggleModal()"
+        
         class="prodImg" :src="`${ prod.image }`">
         <h3>{{ prod.title }}</h3>
+        <p class="prodDesc">{{ prod.description }}
+        <span class="preview"
+        @click="store.toggleModal()"
+        >quick view</span>
+        </p>
         <h4>Price: {{ prod.price }}</h4>
-         
+        <button>add to cart</button>
       </li>
     </ul>
   </section>
@@ -46,7 +49,6 @@ const store = useProdsStore();
 }
 
 .prodPage {
-  
   margin: 10px 2%;
   contain: content;
 }
@@ -76,6 +78,16 @@ const store = useProdsStore();
 
  .prodItem h3 {
   text-align: left;
+ }
+
+ .prodDesc {
+  text-align: left;
+  color: var(--dark-yellow)
+ }
+
+ .preview {
+  color: #0937de;
+  cursor: pointer;
  }
 
 .prodImg {
