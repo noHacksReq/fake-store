@@ -97,6 +97,7 @@ const store = useProdsStore()
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
+  margin: 1px;
 }
 
 
