@@ -22,7 +22,7 @@ const props = defineProps({
 function selectedCat(e) {
   
   store.selectedCat = e.target.innerHTML;
-  
+  store.showSelectePage = false;
   APICalls.getOneCategory(store.selectedCat)
     .then(res=>{
       

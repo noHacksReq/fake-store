@@ -10,6 +10,7 @@ export const useProdsStore = defineStore('products', {
             selectedItem: [],
             productsList: [],
             showModal: false,
+            showSelectePage: false,
         }
     },
     actions: {
@@ -21,7 +22,6 @@ export const useProdsStore = defineStore('products', {
             }
         },
         getItem(key){
-            // need to get itme info on click here
             
             this.selectedProdId = key;
             
@@ -32,6 +32,14 @@ export const useProdsStore = defineStore('products', {
     toggleModal() {
 
         this.showModal = !this.showModal
-    }},
+    },
+    toggleSelectedPage() {
+        
+        //this.showModal = false;
+        this.showSelectePage = !this.showSelectePage;
+    }
+},
+
+
 })
 

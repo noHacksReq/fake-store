@@ -4,6 +4,7 @@ import  * as APICalls from '../api.js'
 import { useProdsStore } from '../productStore.js'
 import { storeToRefs } from 'pinia'
 import Modal from './Modal.vue'
+import SelectedProdPage from './SelectedProdPage.vue'
 
 const store = useProdsStore();
 
@@ -17,8 +18,11 @@ const store = useProdsStore();
   <section v-if="store.showModal === true">
     <Modal/>
   </section>
+  <section v-else-if="store.showSelectePage === true">
+    <SelectedProdPage/>
+  </section>
   
-  <section class="prodPage">
+  <section v-else class="prodPage">
     <h2 v-if="store.selectedCat === null">No Cat Selected</h2>
     <ul class="prodList" v-else >
       <li class="prodItem" v-for="prod in store.productsList"
@@ -26,7 +30,8 @@ const store = useProdsStore();
       @click="store.getItem(prod.id)">
         <img 
         
-        class="prodImg" :src="`${ prod.image }`">
+        class="prodImg" :src="`${ prod.image }`"
+        @click="store.toggleSelectedPage()">
         <h3>{{ prod.title }}</h3>
         <p class="prodDesc">{{ prod.description }}
         <span class="preview"
