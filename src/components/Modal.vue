@@ -10,7 +10,9 @@ const store = useProdsStore()
 </script>
 
 <template>
-  <section v-if="store.selectedItem !== null" class="modalMain">
+  <section v-if="store.selectedItem !== null" 
+    :class="[store.showModal ? 'modalMain' : 'hide'] "
+  >
     <div class="modalCont">
       <div class="close" 
       @click="store.toggleModal">
@@ -35,8 +37,16 @@ const store = useProdsStore()
 </template>
 
 <style scoped>
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
 
 .modalMain {
+
   height: 100vh;
   width: 100vw;
   
@@ -47,7 +57,7 @@ const store = useProdsStore()
   display: flex;
   justify-content: center;
   overflow: auto;
-  z-index: 2;
+  z-index: 20;
 
   background-color: rgba(0, 0, 0, 0.5);
 
