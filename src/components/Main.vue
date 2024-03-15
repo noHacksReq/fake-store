@@ -15,14 +15,18 @@ const store = useProdsStore();
     
     Category {{ store.selectedCat }}
   </h1>
-  <section v-if="store.showModal === true">
+  <section >
     <Modal/>
   </section>
-  <section v-else-if="store.showSelectePage === true">
+  <!--
+      <section v-else-if="store.showSelectePage === true">
     <SelectedProdPage/>
   </section>
+
+  -->
+
   
-  <section v-else class="prodPage">
+  <section  class="prodPage">
     <h2 v-if="store.selectedCat === null">No Cat Selected</h2>
     <ul class="prodList" v-else >
       <li class="prodItem" v-for="prod in store.productsList"
