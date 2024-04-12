@@ -10,7 +10,7 @@ export const useProdsStore = defineStore('products', {
             selectedItem: [],
             productsList: [],
             showModal: false,
-            showSelectePage: false,
+            showSelectePage: true,
         }
     },
     actions: {
